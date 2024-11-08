@@ -1,0 +1,173 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3dddd;
+  margin: 0;
+  padding: 0;
+}
+
+.form-page {
+  max-width: 550px;
+  margin: 50px auto;
+  overflow: hidden;
+  padding: 35px 80px 120px 51px;
+  background-color: #edf3f5e2;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  color: #333;
+  margin-top: 13px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+input[type="text"].is-invalid {
+  border-color: #dc3545;
+}
+
+.error {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Buttons */
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+}
+
+button[type="submit"]:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+button[type="button"] {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.banner-id {
+  margin-top: 20px;
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer; 
+  font-size: 16px;
+}
+
+.tooltip i {
+  margin-right: 8px; 
+  color: #007bff; 
+  font-size: 18px;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 150px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px; 
+  position: absolute;
+  z-index: 1;
+  bottom: 10%; 
+  left: 50%;
+  margin-left: -175px; 
+  opacity: 0;
+}
+
+.tooltip .tooltiptext::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 10%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent; 
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0); 
+}
+
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.banner-id {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #f8f9fa; 
+  border-radius: 8px;
+  border: 1px solid #ddd; 
+  display: flex;
+  flex-direction: column;
+}
+
+.banner-id label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+.banner {
+  font-size: 14px;
+  color: #555;
+  margin-top: 5px;
+  font-weight: normal;
+}

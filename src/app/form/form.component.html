@@ -1,0 +1,76 @@
+<div class="form-page">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container" novalidate>
+    <div *ngFor="let field of formFields" class="form-field">
+      <label [for]="field.name" class="form-label">{{ field.label }}</label>
+
+      <!-- Textbox -->
+      <input
+        *ngIf="field.type === 'textbox'"
+        type="text"
+        [formControlName]="field.name"
+        [id]="field.name"
+        placeholder="Enter {{ field.label }}"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': form.controls[field.name].invalid && form.controls[field.name].touched
+        }"
+      />
+
+      <!-- Textbox1 -->
+      <input
+        *ngIf="field.type === 'textbox1'"
+        type="text"
+        [formControlName]="field.name"
+        [id]="field.name"
+        placeholder="Enter {{ field.label }}"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': form.controls[field.name].invalid && form.controls[field.name].touched
+        }"
+      />
+
+      <!-- Single-Select Dropdown -->
+      <ng-multiselect-dropdown
+        *ngIf="field.type === 'single-select'"
+        [placeholder]="'Select User'"
+        [data]="dropdownList"
+        [formControlName]="field.name"
+        [settings]="singleDropdownSettings"
+        class="form-control"
+        (onSelect)="onItemSelect($event)"
+      ></ng-multiselect-dropdown>
+
+      <!-- Multi-Select Dropdown -->
+      <ng-multiselect-dropdown
+        *ngIf="field.type === 'multi-select'"
+        [placeholder]="'Select Options'"
+        [data]="dropdownList"
+        [formControlName]="field.name"
+        [settings]="dropdownSettings"
+        class="form-control"
+        (onSelect)="onItemSelect($event)"
+        (onSelectAll)="onSelectAll($event)"
+      ></ng-multiselect-dropdown>
+
+      <!-- Error Message -->
+      <div *ngIf="form.get(field.name)?.invalid && form.get(field.name)?.touched" class="error">
+        {{ field.label }} is required.
+      </div>
+    </div>
+
+    <!-- Banner ID Display -->
+    <label class="tooltip">
+      <i class="fa fa-info-circle"></i> BANNER ID
+      <span class="tooltiptext">This field will be auto-populated after the creative is created</span>
+    </label>
+    
+    <div class="banner-id">
+      <div class="banner">{{ bannerId || 'No Banner ID' }}</div >
+    </div>
+
+    <div class="form-buttons">
+      <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Create</button>
+      <button type="button" (click)="onReset()" class="btn btn-secondary">Reset</button>
+    </div>
+  </form>
+</div>
